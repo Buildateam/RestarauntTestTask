@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Restaraunts list
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list class="">
+  <ion-searchbar
+    [(ngModel)]="searchText"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onSearchInput($event.target.value)"
+    (ionCancel)="onSearchInput('')">
+  </ion-searchbar>
+  <ion-item-sliding *ngFor="let rest of restaraunts | async">
+    <button ion-item class="chat" (click)="showRestarauntInfo(rest)">
+      <div class="">
+        <h2 class="">{{rest.title}}</h2>
+
+        <span class="last-message">
+          <p>{{rest.description}}</p>
+        </span>
+      </div>
+    </button>
+    <ion-item-options class="chat-options">
+      <button ion-button color="danger" class="option option-remove" (click)="deleteRestaraunt(rest)">Remove</button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

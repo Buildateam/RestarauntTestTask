@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="" class="">
+
+    <ion-title class="">{{title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="save()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="messages-page-content">
+    <ion-item>
+       <ion-textarea [(ngModel)]="description"></ion-textarea>
+    </ion-item>
+</ion-content>
